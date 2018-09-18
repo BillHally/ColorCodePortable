@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -15,11 +16,15 @@ namespace ColorCode.Compilation
         private readonly Dictionary<string, CompiledLanguage> compiledLanguages;
         private readonly ReaderWriterLockSlim compileLock;
 
-        public LanguageCompiler(Dictionary<string, CompiledLanguage> compiledLanguages)
+        public LanguageCompiler(Dictionary<string, CompiledLanguage> compiledLanguages, ReaderWriterLockSlim compileLock)
         {
             this.compiledLanguages = compiledLanguages;
+            this.compileLock = compileLock;
+        }
 
-            compileLock = new ReaderWriterLockSlim();
+        public LanguageCompiler(Dictionary<string, CompiledLanguage> compiledLanguages)
+            : this(compiledLanguages, new ReaderWriterLockSlim())
+        {
         }
 
         public CompiledLanguage Compile(ILanguage language)
