@@ -23,8 +23,9 @@
 	</Target>
 
 	<Target Name="compile" DependsOnTargets="clean">
-		<MSBuild Projects="ColorCode.sln" Targets="Build" Properties="Configuration=Debug"/>
-    <MSBuild Projects="ColorCode.sln" Targets="Build" Properties="Configuration=Release"/>
+        <MSBuild Projects="ColorCode.sln" Targets="Restore" />
+        <MSBuild Projects="ColorCode.sln" Targets="Build" Properties="Configuration=Debug"/>
+        <MSBuild Projects="ColorCode.sln" Targets="Build" Properties="Configuration=Release"/>
 	</Target>
 
 	<Target Name="run-facts" DependsOnTargets="compile">
