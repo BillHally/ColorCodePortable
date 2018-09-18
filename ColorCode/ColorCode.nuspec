@@ -15,4 +15,8 @@
     <copyright>©2016, All Rights Reserved</copyright>
     <tags>ColorCode Syntax SyntaxHighlighting Colorizing</tags>
   </metadata>
+  <files>
+    <file src="bin\Release\ColorCode.dll" target="lib\portable-net45+wp8+win8+wpa81\ColorCode.dll" />
+    <file src="bin\Release\ColorCode.pdb" target="lib\portable-net45+wp8+win8+wpa81\ColorCode.pdb" />
+  </files>
 </package>
